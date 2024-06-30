@@ -1,6 +1,8 @@
 # travel-time-card
 Home Assistant lovelace card to display travel times from the Google Maps Travel Time service
 
+[travel-time-card in action](travel-time-card-example.png)
+
 ## Getting Started
 
 First, add the Google Maps Travel Time service, which ships as a default Home Assistant add on.
