@@ -22,9 +22,9 @@ class TravelTimeCard extends HTMLElement {
       throw new Error('Required field: entity');
     }
 
-    if (this._config.imageUrl) {
+    if (this._config.image_url) {
       const img = document.createElement('img');
-      img.src = this._config.imageUrl;
+      img.src = this._config.image_url;
       img.height = 100;
       this._elements.destination.append(img);
     } else if (this._config.title) {
@@ -62,8 +62,8 @@ class TravelTimeCard extends HTMLElement {
   }
 
   getBackgroundImageCss() {
-    if (this._config?.imageUrl) {
-      return `url("${this._config.imageUrl}")`;
+    if (this._config?.image_url) {
+      return `url("${this._config.image_url}")`;
     } else {
       return 'none';
     }
