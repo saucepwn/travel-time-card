@@ -1,7 +1,9 @@
 # travel-time-card
 Home Assistant lovelace card to display travel times from the Google Maps Travel Time service
 
-[travel-time-card in action](travel-time-card-example.png)
+![travel-time-card in action](travel-time-card-example.png)
+
+The card will render the travel time as green, orange, or red depending on how much traffic is expected en route.
 
 ## Getting Started
 
