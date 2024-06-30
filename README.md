@@ -1,4 +1,7 @@
+[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=Saucepwn&repository=travel-time-card&category=plugin)
+
 # travel-time-card
+
 Home Assistant lovelace card to display travel times from the Google Maps Travel Time service
 
 ![travel-time-card in action](travel-time-card-example.png)
