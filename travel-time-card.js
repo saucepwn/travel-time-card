@@ -50,6 +50,9 @@ class TravelTimeCard extends HTMLElement {
         <span class="standard-time"></span>
       </div>
     `;
+    this._elements.card.addEventListener('click', () => {
+      this._showMoreInfo();
+    });
   }
 
   doQueryElements() {
@@ -78,6 +81,8 @@ class TravelTimeCard extends HTMLElement {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        cursor: pointer;
 
         --good-color: 0, 220, 0;
         --alright-color: 255, 133, 0;
@@ -154,16 +159,16 @@ class TravelTimeCard extends HTMLElement {
     this._elements.card_content.classList.remove('time-bad');
 
     const extractNumber = /\d+/;
-    const currentInt = Number(
+    const currentTravelTime = Number(
       this.getCurrentTravelTime().match(extractNumber)[0]
     );
-    const standardInt = Number(
+    const standardTravelTime = Number(
       this.getStandardTravelTime().match(extractNumber)[0]
     );
 
-    if (currentInt < standardInt) {
+    if (currentTravelTime < standardTravelTime) {
       this._elements.card_content.classList.add('time-good');
-    } else if (currentInt - 5 < standardInt) {
+    } else if (currentTravelTime - 5 < standardTravelTime) {
       this._elements.card_content.classList.add('time-alright');
     } else {
       this._elements.card_content.classList.add('time-bad');
@@ -185,6 +190,17 @@ class TravelTimeCard extends HTMLElement {
 
   getStandardTravelTime() {
     return this.getState().attributes.duration;
+  }
+
+  _showMoreInfo() {
+    const event = new Event('hass-more-info', {
+      bubbles: true,
+      composed: true,
+    });
+    event.detail = { entityId: this._config.entity };
+
+    console.log('dispatching event: ' + event);
+    this.dispatchEvent(event);
   }
 }
 
